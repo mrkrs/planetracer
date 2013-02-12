@@ -20,7 +20,7 @@ everyone = nowjs.initialize(httpServer);
 
 ####################################################################
 
-client = redis.createClient(7777)
+client = redis.createClient()
 
 ####################################################################
 

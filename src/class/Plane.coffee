@@ -11,7 +11,7 @@ class Plane
             
         @obj = new google.maps.Polyline({
           strokeColor: '#FFFFFF',
-          strokeOpacity: 0.1,
+          strokeOpacity: 0.05,
           strokeWeight: 1.05
         })
 
