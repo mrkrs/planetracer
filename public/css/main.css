@@ -1,0 +1,39 @@
+body {
+	overflow: hidden;
+}
+
+#map_canvas {
+	display: block;
+}
+
+#map_canvas a {
+	display: none;
+}
+
+.gmnoprint {
+	display: none;
+}
+
+#panel {
+	width: 100%;
+	height: 30px;
+	position: absolute;
+	background-color: rgba(10,10,10,0.1);
+	bottom: 0px;
+	border: solid 1px rgba(15,15,15,0.5);
+}
+
+#panel div {
+	float: left;
+	color: rgba(155,155,155,0.5);
+	width: 15%;
+	margin-top: 8px;
+	margin-left: 5%;
+	font-family: 'Lekton', sans-serif;
+	font-weight: 100;	
+}
+
+#panel span {
+	color: rgba(155,155,155,0.8);
+	font-weight: 700;
+}

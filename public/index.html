@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      html, body, #map_canvas {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+    </style>
+    <link href='http://fonts.googleapis.com/css?family=Lekton:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <title>Google Maps JavaScript API v3 Example: Polyline Simple</title>
+
+    <script type="text/javascript" src="/nowjs/now.js"></script>
+
+    <script src="js/App/App.js"></script>
+
+    <script src="js/App/class/Plane.js"></script>
+
+    <script src="http://sugarjs.com/current/sugar-full.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://yui.yahooapis.com/3.8.1/build/yui/yui-min.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script>
+
+      function initialize() {
+
+        Number.prototype.formatThousandViz =  function () {
+            return this.toFixed(1).toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ").replace('.',',').replace(',0', '');
+        };
+
+        app = new App()
+        setTimeout( function() {
+          $('#map_canvas').children('div').children('div:nth-child(2)').remove()
+        },4000)
+
+        now.log = function(data) {
+          
+          fromNow = Date.create(data.start).minutesAgo();
+          from = fromNow + ' minutes ago';
+
+          if (fromNow > 59) {
+            fromNow = Date.create(data.start).hoursAgo();
+            from = fromNow + ' hours ago';
+          }
+
+          $('#start #value').text(  from )
+          $('#requests #value').text(  data.requests.formatThousandViz() )
+          $('#planes #value').text(  data.planes.formatThousandViz() )
+          $('#updates #value').text( data.updates.formatThousandViz() )
+          $('#creates #value').text( data.creates.formatThousandViz() )
+
+        }
+
+
+      }
+
+    </script>
+  </head>
+  <body onload="initialize()">
+    <div id="map_canvas"></div>
+    <div id="panel"> 
+      <div id ="start"> START : <span id="value"></span>  </div>
+      <div id ="requests"> REQUESTS : <span id="value"></span>  </div>
+      <div id ="planes"> PLANES : <span id="value"></span>  </div>
+      <div id ="updates"> UPDATES : <span id="value"></span>  </div>
+      <div id ="creates"> CREATES : <span id="value"></span>  </div>
+    </div>
+  </body>
+</html>

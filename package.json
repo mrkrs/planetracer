@@ -1,0 +1,13 @@
+{
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "2.5.8",
+    "now": "~0.8.1",
+    "redis": "~0.8.2",
+    "http": "0.0.0",
+    "node-static": "~0.6.7",
+    "socket.io": "~0.9.13"
+  }
+}
